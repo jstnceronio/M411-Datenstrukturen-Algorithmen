@@ -6,24 +6,31 @@ import java.io.InputStreamReader;
 
 public class Collatz {
     public static void main(String[] args) {
+        collatz();
+    }
+
+    public static void collatz() {
         try {
-            collatz(19);
+            int i = 0;
+
+            BufferedReader br = new BufferedReader(
+                    new InputStreamReader(System.in));
+
+            System.out.println("Bitte Nummer eingeben: ");
+            int n = Integer.parseInt(br.readLine());
+
+            while (n != 1) {
+                if (n % 2 == 0) {
+                    n = n / 2;
+                } else {
+                    n = 3 * n + 1;
+                }
+                i++;
+                System.out.println("Schritt " + i + ": " + n);
+            }
+            System.out.println("Fertig!");
         } catch (IOException e) {
             System.out.println(e);
         }
-    }
-
-    public static void collatz(int a) throws IOException {
-
-        if (a > 0) {int n = a;} else {System.exit(0);}
-
-        BufferedReader br = new BufferedReader(
-                new InputStreamReader(System.in));
-        System.out.println("Bitte a eingeben: ");
-        a = Double.parseDouble(br.readLine());
-        System.out.println("Bitte b eingeben: ");
-        b = Double.parseDouble(br.readLine());
-        c = Math.abs(a + b/2);
-        System.out.println("abs(a + b/2)="+c);
     }
 }
