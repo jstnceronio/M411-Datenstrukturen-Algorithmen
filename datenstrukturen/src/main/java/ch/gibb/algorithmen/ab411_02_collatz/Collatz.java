@@ -9,8 +9,9 @@ public class Collatz {
         // procedural
         collatz_procedure(19);
 
-        // functional
-        collatz_functional();
+        // recursive
+        System.out.println("Rekursive Berechnung: ");
+        collatz_rek(19);
     }
 
     public static void collatz_procedure(long n) {
@@ -34,31 +35,16 @@ public class Collatz {
         System.out.println("Fertig!");
     }
 
-    private static void collatz_functional() {
-        try {
-            BufferedReader br = new BufferedReader(
-                    new InputStreamReader(System.in));
+    static void collatz_rek(int pN){
+        System.out.print(pN + ", ");
 
-            System.out.println("Bitte Nummer eingeben: ");
-            int n = Integer.parseInt(br.readLine());
-
-            // Confirm
-            System.out.println("Collatz-Berechnung für: " + n);
-            System.out.println("Funktionale Berechnung: ");
-
-            // WIP -> functional??
-            while (n != 1) {
-                if (n % 2 == 0) {
-                    n = n / 2;
-                } else {
-                    n = 3 * n + 1;
-                }
-                System.out.print(n + ", ");
-            }
-            System.out.println("Fertig!");
-
-        } catch (IOException e) {
-            System.out.println(e);
+        if( pN == 1 ) {
+            return;
+        }
+        if( pN % 2 == 0){
+            collatz_rek(pN/2);
+        }else {
+            collatz_rek(3*pN+1);
         }
     }
 }
