@@ -1,22 +1,31 @@
 package ch.gibb.algorithmen.ab411_02_collatz;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import static java.lang.Integer.parseInt;
+import static java.lang.Long.parseLong;
 
 public class Collatz {
-    public static void main(String[] args) {
-        // procedural
-        collatz_procedure(19);
 
-        // recursive
-        System.out.println("Rekursive Berechnung: ");
-        collatz_rek(19);
+    // getter for tests
+    public int getInvocations() {
+        return invocations;
+    }
+
+    // purely for testing
+    private static int invocations = 0;
+
+    public static void main(String[] args) {
+        if (args.length >= 2) {
+            // procedural
+            collatz_procedure(parseLong(args[0]));
+
+            // recursive
+            System.out.println("Rekursive Berechnung: ");
+            collatz_rek(parseInt(args[0]));
+        }
     }
 
     public static void collatz_procedure(long n) {
-        // Counter
-        int i = 0;
+        invocations++;
 
         // Confirm
         System.out.println("Collatz-Berechnung für: " + n);
@@ -29,13 +38,14 @@ public class Collatz {
             } else {
                 n = 3 * n + 1;
             }
-            i++;
             System.out.print(n + ", ");
         }
         System.out.println("Fertig!");
     }
 
     static void collatz_rek(int pN){
+        invocations++;
+
         System.out.print(pN + ", ");
 
         if( pN == 1 ) {
