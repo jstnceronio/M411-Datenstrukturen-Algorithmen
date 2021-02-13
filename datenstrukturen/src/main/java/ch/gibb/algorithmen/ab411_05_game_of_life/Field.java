@@ -1,11 +1,21 @@
-package ch.gibb.algorithmen.ab411_05;
+package ch.gibb.algorithmen.ab411_05_game_of_life;
 
-import java.util.ArrayList;
-
+/**
+ * Creates new game field
+ * Offers functions to control environment
+ */
 public class Field {
 
+    // store cells
     private Cell[][] world;
+    // generation count
+    private int generation;
 
+    /**
+     * Instantiates game field
+     * @param DIM1 x-size
+     * @param DIM2 y-size
+     */
     public Field(int DIM1, int DIM2) {
 
         // create world of cells
@@ -19,6 +29,9 @@ public class Field {
         }
     }
 
+    /**
+     * Shows current world
+     */
     public void displayWorld() {
         for (int row = 0; row < world.length; row++) {
             for (int col = 0; col < world[row].length; col++) {
@@ -28,6 +41,12 @@ public class Field {
         }
     }
 
+    /**
+     * Counts neighbor fields with given position
+     * @param x position of cell
+     * @param y position of cell
+     * @return nr of adjacent fields
+     */
     public int getAdjacentFields(int x, int y) {
         int fields = 0;
 
@@ -37,7 +56,8 @@ public class Field {
                     if (world[i][j].isAlive())
                         fields += 1;
                 } catch (ArrayIndexOutOfBoundsException e) {
-                    // dont care
+                    // not in bounds
+                    // don't care
                 }
 
         // counted a neighbor too much?
@@ -47,14 +67,10 @@ public class Field {
         return fields;
     }
 
+    /**
+     * Apply given rules to game field
+     */
     public void applyRules() {
-        /*
-        1.jede lebendige Zelle, die weniger als zwei lebendige Nachbarn hat, stirbt an Einsamkeit
-        2.jede lebendige Zelle mit mehr als drei lebendigen Nachbarn stirbt anÜberbevölkerung
-        3.jede lebendige Zelle mit zwei oder drei Nachbarn fühlt sich wohl und lebt weiter
-        4.jede tote Zelle mit genau drei lebendigen Nachbarn wird wieder zum Lebenerweckt
-         */
-
         for (int row = 0; row < world.length; row++) {
             for (int col = 0; col < world[row].length; col++) {
                 // rule nr 1
@@ -78,11 +94,21 @@ public class Field {
         }
     }
 
-    public void update(int n) {
-        for (int i = 0; i < n; i++) {
-            applyRules();
-            System.out.println("Gen. " + i);
-            displayWorld();
-        }
+    /**
+     * Keeps track of world
+     */
+    public void update() {
+        // increment gen count
+        generation++;
+        // show current world
+        displayWorld();
+        // apply rules to that world
+        applyRules();
+        // output current gen
+        if (generation == 1)
+            System.out.println("Startkonstellation");
+        else
+            System.out.println("Gen. " + generation);
+
     }
 }

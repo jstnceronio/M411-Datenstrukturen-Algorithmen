@@ -1,4 +1,4 @@
-package ch.gibb.algorithmen.ab411_05;
+package ch.gibb.algorithmen.ab411_05_game_of_life;
 
 public class Cell {
 
