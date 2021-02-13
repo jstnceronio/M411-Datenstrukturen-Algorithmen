@@ -33,8 +33,12 @@ public class Field {
 
         for (int i=x-1; i<=x+1; ++i)
             for (int j=y-1; j<=y+1; ++j)
-                if (world[i][j].isAlive())
-                    fields += 1;
+                try {
+                    if (world[i][j].isAlive())
+                        fields += 1;
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    // dont care
+                }
 
         // counted a neighbor too much?
         if (world[x][y].isAlive())
@@ -65,7 +69,6 @@ public class Field {
                 }
                 if (getAdjacentFields(row, col) == 2 || getAdjacentFields(row, col) == 3) {
                     // continues to live on
-                    break;
                 }
                 if (getAdjacentFields(row, col) == 3) {
                     // resurrect
