@@ -2,6 +2,7 @@ package ch.gibb.algorithmen.ab411_02_collatz;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
+import java.util.Scanner;
 
 public class Collatz {
 
@@ -10,8 +11,7 @@ public class Collatz {
         return invocations;
     }
 
-    // purely for testing
-    private static int invocations = 0;
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         String method;
@@ -54,7 +54,7 @@ public class Collatz {
         }
     }
 
-    public static void collatz_procedure(long n) {
+    public static void collatz_pro(long n) {
         invocations++;
 
         // Confirm
@@ -73,18 +73,18 @@ public class Collatz {
         System.out.println("Fertig!");
     }
 
-    static void collatz_rek(int pN){
+    static void collatz_rek(int n){
         invocations++;
 
-        System.out.print(pN + ", ");
+        System.out.print(n + ", ");
 
-        if( pN == 1 ) {
+        if( n == 1 ) {
             return;
         }
-        if( pN % 2 == 0){
-            collatz_rek(pN/2);
+        if( n % 2 == 0){
+            collatz_rek(n/2);
         }else {
-            collatz_rek(3*pN+1);
+            collatz_rek(3*n+1);
         }
     }
 }
