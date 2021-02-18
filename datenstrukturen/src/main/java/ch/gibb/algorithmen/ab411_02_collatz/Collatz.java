@@ -6,11 +6,6 @@ import java.util.Scanner;
 
 public class Collatz {
 
-    // getter for tests
-    public int getInvocations() {
-        return invocations;
-    }
-
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -55,7 +50,6 @@ public class Collatz {
     }
 
     public static void collatz_pro(long n) {
-        invocations++;
 
         // Confirm
         System.out.println("Collatz-Berechnung für: " + n);
@@ -74,7 +68,6 @@ public class Collatz {
     }
 
     static void collatz_rek(int n){
-        invocations++;
 
         System.out.print(n + ", ");
 

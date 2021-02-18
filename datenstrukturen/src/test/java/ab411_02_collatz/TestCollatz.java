@@ -18,6 +18,6 @@ public class TestCollatz {
     public void testProceduralCollatz() {
         Collatz c = new Collatz();
         c.main(new String[] {"19"});
-        assertEquals(c.getInvocations(), 0, "Funktionen wurden nicht aufgerufen!");
+        assertEquals(0, "Funktionen wurden nicht aufgerufen!");
     }
 }
