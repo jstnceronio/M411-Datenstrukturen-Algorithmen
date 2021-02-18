@@ -14,13 +14,43 @@ public class Collatz {
     private static int invocations = 0;
 
     public static void main(String[] args) {
-        if (args.length >= 2) {
-            // procedural
-            collatz_procedure(parseLong(args[0]));
+        String method;
 
-            // recursive
-            System.out.println("Rekursive Berechnung: ");
-            collatz_rek(parseInt(args[0]));
+        //while input is wrong
+        while (true) {
+            System.out.println("Wie soll die Berechnung sein? Procedural/Rekursiv? (p/r)");
+            try {
+                //get the method from user
+                method = scanner.nextLine();
+                //if the input is correct
+                if(method.equals("p")) {
+                    System.out.println("Bitte Startzahl eingeben:");
+                    try {
+                        //get starting number and then start the calculation
+                        collatz_pro(Long.parseLong(scanner.nextLine()));
+                    } catch(Exception e) {
+                        //if wrong number is entered start over
+                        throw new Exception();
+                    }
+                    //if input is still correct
+                } else if (method.equals("r")) {
+                    System.out.println("Bitte Startzahl eingeben:");
+                    try {
+                        //get starting number and then start the calculation
+                        collatz_rek(Integer.parseInt(scanner.nextLine()));
+                    } catch(Exception e) {
+                        //if wrong number is entered start over
+                        throw new Exception();
+                    }
+                } else {
+                    //if there is no clear method given start over
+                    throw new Exception();
+                }
+                break;
+            } catch (Exception e) {
+                //start over
+                System.out.println("Wrong input!");
+            };
         }
     }
 
