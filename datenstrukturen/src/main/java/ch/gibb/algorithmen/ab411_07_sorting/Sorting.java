@@ -1,7 +1,9 @@
 package ch.gibb.algorithmen.ab411_07_sorting;
 
 
-import java.util.Random;
+import ch.gibb.algorithmen.ab411_tools.Helper;
+import ch.gibb.algorithmen.ab411_tools.Stopwatch;
+
 import java.util.Scanner;
 
 public class Sorting {
@@ -17,7 +19,7 @@ public class Sorting {
         int n = in.nextInt();
 
         // Construct random array
-        int[] list = randomIntArray(n, 100);
+        int[] list = Helper.randomIntArray(n, 100);
 
         measure_time("insertion", list);
         measure_time("bubble", list);
@@ -38,7 +40,7 @@ public class Sorting {
         else
             bubble_sort(list);
 
-        printList(list);
+        Helper.printList(list);
 
         double time1 = timer1.elapsedTime();
         System.out.println("Elapsed time for " +  context + "_sort(): "
@@ -54,23 +56,10 @@ public class Sorting {
         for (int n = list.length; n>1; --n) {
             for (int i = 0; i < n - 1; ++i) {
                 if (list[i] > list[i+1]) {
-                    swap(list, i, i+1);
+                    Helper.swap(list, i, i+1);
                 }
             }
         }
-    }
-
-    /**
-     * Swaps 2 elements
-     * @param arr
-     * @param a
-     * @param b
-     */
-    public static int[] swap(int[] arr, int a, int b) {
-        int temp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = temp;
-        return arr;
     }
 
     /**
@@ -91,32 +80,4 @@ public class Sorting {
             list[j + 1] = key;
         }
     }
-
-    /**
-     * Prints given list
-     * @param list to be printed
-     */
-    private static void printList(int[] list) {
-
-        for ( int i = 0; i < list.length; i++ )
-            System.out.print(list[i] + " ");
-
-        System.out.println();
-    }
-
-    /**
-     * Create random int array with given length & size
-     * @param length
-     * @param size
-     * @return numbers array
-     */
-    public static int[] randomIntArray(int length, int size) {
-        Random r = new Random();
-        int[] numbers = new int[length];
-        for(int i = 0; i < length; i++) {
-            numbers[i] = r.nextInt(size+1);
-        }
-        return numbers;
-    }
-
 }

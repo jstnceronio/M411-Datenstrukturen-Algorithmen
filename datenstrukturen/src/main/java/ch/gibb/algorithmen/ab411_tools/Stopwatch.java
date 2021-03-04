@@ -1,4 +1,4 @@
-package ch.gibb.algorithmen.ab411_07_sorting;
+package ch.gibb.algorithmen.ab411_tools;
 
 /******************************************************************************
  * Compilation: javac Stopwatch.java
@@ -12,12 +12,12 @@ package ch.gibb.algorithmen.ab411_07_sorting;
  * 6.666667e+11 8.4530 seconds
  *
  ******************************************************************************/
+
 /**
  * The {@code Stopwatch} data type is for measuring
  * the time that elapses between the start and end of a
  * programming task (wall-clock time).
  *
- * See {@link StopwatchCPU} for a version that measures CPU time.
  iet-gibb
  M411-02
  Seite 3/7
