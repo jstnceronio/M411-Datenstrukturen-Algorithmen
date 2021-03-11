@@ -1,4 +1,4 @@
-package ch.gibb.algorithmen.ab411_05_game_of_life;
+package ch.gibb.algorithmen.ab411_01_game_of_life;
 
 import java.util.Timer;
 import java.util.TimerTask;

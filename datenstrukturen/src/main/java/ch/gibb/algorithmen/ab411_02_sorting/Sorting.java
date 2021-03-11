@@ -1,4 +1,4 @@
-package ch.gibb.algorithmen.ab411_07_sorting;
+package ch.gibb.algorithmen.ab411_02_sorting;
 
 
 import ch.gibb.algorithmen.ab411_tools.Helper;

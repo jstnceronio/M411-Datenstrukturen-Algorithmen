@@ -1,4 +1,4 @@
-package ch.gibb.algorithmen.ab411_02_collatz;
+package ch.gibb.algorithmen.ab411_01_collatz;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
