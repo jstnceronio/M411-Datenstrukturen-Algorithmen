@@ -58,4 +58,24 @@ public class Helper {
         arr[b] = temp;
         return arr;
     }
+
+    /**
+     * Converts String[] to int[]
+     * @param args String[] to convert
+     * @return filled int[]
+     */
+    public static int[] argsToList(String[] args) {
+
+        // check input
+        if (!(args.length > 0))
+            System.exit(1);
+
+        // fill array
+        int [] arr = new int [args.length];
+        for(int i=0; i<args.length; i++) {
+            arr[i] = Integer.parseInt(args[i]);
+        }
+
+        return arr;
+    }
 }
