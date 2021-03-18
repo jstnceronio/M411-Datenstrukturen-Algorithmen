@@ -1,4 +1,4 @@
-package ch.gibb.algorithmen.ab411_07_quicksort;
+package ch.gibb.algorithmen.ab411_04_quicksort;
 
 import ch.gibb.algorithmen.ab411_tools.Helper;
 import ch.gibb.algorithmen.ab411_tools.StdOut;

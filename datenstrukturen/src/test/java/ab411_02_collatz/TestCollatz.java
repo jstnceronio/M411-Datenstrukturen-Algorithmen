@@ -1,8 +1,7 @@
 package ab411_02_collatz;
 
-import ch.gibb.algorithmen.ab411_02_collatz.Collatz;
+import ch.gibb.algorithmen.ab411_01_collatz.Collatz;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

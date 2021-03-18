@@ -1,4 +1,4 @@
-package ch.gibb.algorithmen.ab411_09_recursion;
+package ch.gibb.algorithmen.ab411_03_recursion;
 
 public class Main {
 
